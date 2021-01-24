@@ -15,5 +15,15 @@ namespace GameStoreDAL.Models
         public decimal Price { get; set; }
         public DateTime ReleaseDate { get; set; }
         public decimal Discount { get; set; }
+
+        public int DeveloperId { get; set; }
+        public Developer Developer { get; set; }
+
+        public int PublisherId { get; set; }
+        public Publisher Publisher { get; set; }
+
+        public ICollection<Genre> Genres { get; set; }
+
+        public ICollection<Order> Orders { get; set; }
     }
 }

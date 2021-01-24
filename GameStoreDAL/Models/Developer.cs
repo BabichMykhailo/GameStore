@@ -11,5 +11,10 @@ namespace GameStoreDAL.Models
         public string Title { get; set; }
         public int Id { get; set; }
 
+        public ICollection<Game> Games { get; set; }
+
+        
+
+
     }
 }
