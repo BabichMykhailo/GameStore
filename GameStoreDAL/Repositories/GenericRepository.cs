@@ -13,8 +13,8 @@ namespace GameStoreDAL.Repositories
     }
     public interface IGenericRepository<T, TId> where T : class, IEntity<TId>
     {
-        IEnumerable<T> GetAll();
-        T GetById(TId id);
+        IQueryable<T> GetAll();
+        //T GetById(TId id);
         void Create(T model);
         void Update(T model);
         void Delete(TId id);
@@ -39,18 +39,18 @@ namespace GameStoreDAL.Repositories
             _table.Remove(entity);
             _ctx.SaveChanges();
         }
-        public IEnumerable<T> GetAll()
+        public virtual IQueryable<T> GetAll()
         {
-            return _table.ToList();
+            return _table;
         }
-        public T GetById(TId id)
-        {
-            return _table.FirstOrDefault(x => x.Id.Equals(id));
-        }
+        //public T GetById(TId id)
+        //{
+        //    return _table.FirstOrDefault(x => x.Id.Equals(id));
+        //}
         public void Update(T model)
         {
-            //_table.AddOrUpdate(model);
-            //_ctx.SaveChanges();
+            _ctx.Entry(model).State = EntityState.Modified;
+            _ctx.SaveChanges();
         }
     }
 }

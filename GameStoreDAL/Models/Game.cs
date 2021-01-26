@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameStoreDAL.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameStoreDAL.Models
 {
-    public class Game
+    public class Game : IEntity<int>
     { 
         public int Id { get; set; }
         public string Title { get; set; }
@@ -23,7 +24,6 @@ namespace GameStoreDAL.Models
         public Publisher Publisher { get; set; }
 
         public ICollection<Genre> Genres { get; set; }
-
         public ICollection<Order> Orders { get; set; }
     }
 }

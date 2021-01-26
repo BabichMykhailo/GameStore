@@ -5,18 +5,19 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{654378CE-9411-4E56-A04B-D1501293DC6E}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameStoreDAL</RootNamespace>
-    <AssemblyName>GameStoreDAL</AssemblyName>
+    <ProjectGuid>{0948371D-160E-4F3D-97AD-D356528DEB8E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TEST</RootNamespace>
+    <AssemblyName>TEST</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -26,6 +27,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -51,33 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameStoreContext.cs" />
-    <Compile Include="Migrations\202101241157510_Initial_Create.cs" />
-    <Compile Include="Migrations\202101241157510_Initial_Create.designer.cs">
-      <DependentUpon>202101241157510_Initial_Create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Developer.cs" />
-    <Compile Include="Models\Game.cs" />
-    <Compile Include="Models\Genre.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Publisher.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\DeveloperRepository.cs" />
-    <Compile Include="Repositories\GameRepository.cs" />
-    <Compile Include="Repositories\GenericRepository.cs" />
-    <Compile Include="Repositories\GenreRepository.cs" />
-    <Compile Include="Repositories\OrderRepository.cs" />
-    <Compile Include="Repositories\PublisherRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202101241157510_Initial_Create.resx">
-      <DependentUpon>202101241157510_Initial_Create.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\GameStoreDAL\GameStoreDAL.csproj">
+      <Project>{654378ce-9411-4e56-a04b-d1501293dc6e}</Project>
+      <Name>GameStoreDAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
