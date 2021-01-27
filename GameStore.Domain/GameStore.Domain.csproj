@@ -55,12 +55,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLLightInjectConfig.cs" />
+    <Compile Include="Models\DeveloperModel.cs" />
+    <Compile Include="Models\GameModel.cs" />
+    <Compile Include="Models\GenreModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\PublisherModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DeveloperService.cs" />
     <Compile Include="Services\GameService.cs" />
+    <Compile Include="Services\GenreService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\PublisherService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\GameStoreDAL\GameStoreDAL.csproj">
       <Project>{654378ce-9411-4e56-a04b-d1501293dc6e}</Project>
