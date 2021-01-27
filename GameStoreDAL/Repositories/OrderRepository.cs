@@ -14,19 +14,16 @@ namespace GameStoreDAL.Repositories
         void Update(Order model);
         void Delete(int id);
         Order GetById(int id);
-        IEnumerable<Order> GetAllOrders();
+        IEnumerable<Order> GetAll();
     }
 
     public class OrderRepository : GenericRepository<Order, int>, IOrderRepository
     {
-        public IEnumerable<Order> GetAllOrders()
+        public override IEnumerable<Order> GetAll()
         {
-            return GetAll().Include(x => x.Games).ToList();
+            return _table.Include(x => x.Games).ToList();
         }
 
-        public Order GetById(int id)
-        {
-            return _table.FirstOrDefault(x => x.Id == id);
-        }
+        
     }
 }

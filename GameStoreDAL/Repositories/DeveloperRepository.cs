@@ -14,19 +14,15 @@ namespace GameStoreDAL.Repositories
         void Update(Developer model);
         void Delete(int id);
         Developer GetById(int id);
-        IEnumerable<Developer> GetAllDevelopers();
+        IEnumerable<Developer> GetAll();
     }
 
     public class DeveloperRepository : GenericRepository<Developer, int>, IDeveloperRepository
     {
-        public IEnumerable<Developer> GetAllDevelopers()
-        {
-            return GetAll().Include(x => x.Games).ToList();
-        }
 
-        public Developer GetById(int id)
+        public override IEnumerable<Developer> GetAll()
         {
-            return _table.FirstOrDefault(x => x.Id == id);
+            return _table.Include(x => x.Games).ToList();
         }
     }
 

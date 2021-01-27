@@ -14,19 +14,16 @@ namespace GameStoreDAL.Repositories
         void Update(Genre model);
         void Delete(int id);
         Genre GetById(int id);
-        IEnumerable<Genre> GetAllGenre();
+        IEnumerable<Genre> GetAll();
     }
 
     public class GenreRepository : GenericRepository<Genre, int>, IGenreRepository
     {
-        public IEnumerable<Genre> GetAllGenre()
+        public override IEnumerable<Genre> GetAll()
         {
-            return GetAll().Include(x => x.Games).ToList();
+            return _table.Include(x => x.Games).ToList();
         }
 
-        public Genre GetById(int id)
-        {
-            return _table.FirstOrDefault(x => x.Id == id);
-        }
+        
     }
 }

@@ -14,14 +14,14 @@ namespace GameStoreDAL.Repositories
         void Update(Game model);
         void Delete(int id);
         Game GetById(int id);
-        IEnumerable<Game> GetAllGames();
+        IEnumerable<Game> GetAll();
     }
 
     public class GameRepository : GenericRepository<Game, int>, IGameRepository
     {
-        public IEnumerable<Game> GetAllGames()
+        public override IEnumerable<Game> GetAll()
         {
-            return GetAll()
+            return _table
                 .Include(x => x.Developer)
                 .Include(x => x.Publisher)
                 .Include(x => x.Genres)
@@ -29,9 +29,6 @@ namespace GameStoreDAL.Repositories
                 .ToList();
         }
 
-        public Game GetById(int id)
-        {
-            return _table.FirstOrDefault(x => x.Id == id);
-        }
+        
     }
 }

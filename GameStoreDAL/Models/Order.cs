@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameStoreDAL.Models
 {
-    public class Order : IEntity<int>
+    public class Order : IEntity
     {
         public int Id { get; set; }
 

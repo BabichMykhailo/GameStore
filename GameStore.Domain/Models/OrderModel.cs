@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.Models
 {
-    public class OrderModel : IEntity<int>
+    public class OrderModel : IEntity
     {
         public int Id { get; set; }
-        public ICollection<Game> Games { get; set; }
+        public ICollection<GameModel> Games { get; set; }
     }
 }

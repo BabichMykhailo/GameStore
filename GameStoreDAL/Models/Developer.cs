@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GameStoreDAL.Models
 {
-    public class Developer : IEntity<int>
+    public class Developer : IEntity
     {
         public int Id { get; set; }
         public string Title { get; set; }

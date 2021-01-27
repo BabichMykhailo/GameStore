@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace GameStoreDAL.Repositories
 {
-    public interface IEntity<TId>
+    public interface IEntity
     {
-        TId Id { get; set; }
+        int Id { get; set; }
     }
-    public interface IGenericRepository<T, TId> where T : class, IEntity<TId>
+    public interface IGenericRepository<T> where T : class, IEntity
     {
-        IQueryable<T> GetAll();
-        //T GetById(TId id);
+        IEnumerable<T> GetAll();
+        T GetById(int id);
         void Create(T model);
         void Update(T model);
-        void Delete(TId id);
+        void Delete(int id);
     }
-    public class GenericRepository<T, TId> : IGenericRepository<T, TId> where T : class, IEntity<TId>
+    public abstract class GenericRepository<T, TId> : IGenericRepository<T> where T : class, IEntity
     {
         protected DbContext _ctx;
         protected DbSet<T> _table;
@@ -33,20 +33,18 @@ namespace GameStoreDAL.Repositories
             _table.Add(model);
             _ctx.SaveChanges();
         }
-        public void Delete(TId id)
+        public void Delete(int id)
         {
             var entity = _table.FirstOrDefault(x => x.Id.Equals(id));
             _table.Remove(entity);
             _ctx.SaveChanges();
         }
-        public virtual IQueryable<T> GetAll()
+        public abstract IEnumerable<T> GetAll();
+
+        public T GetById(int id)
         {
-            return _table;
+            return _table.FirstOrDefault(x => x.Id.Equals(id));
         }
-        //public T GetById(TId id)
-        //{
-        //    return _table.FirstOrDefault(x => x.Id.Equals(id));
-        //}
         public void Update(T model)
         {
             _ctx.Entry(model).State = EntityState.Modified;

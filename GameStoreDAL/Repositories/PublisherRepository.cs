@@ -14,19 +14,16 @@ namespace GameStoreDAL.Repositories
         void Update(Publisher model);
         void Delete(int id);
         Publisher GetById(int id);
-        IEnumerable<Publisher> GetAllPublishers();
+        IEnumerable<Publisher> GetAll();
     }
 
     public class PublisherRepository : GenericRepository<Publisher, int>, IPublisherRepository
     {
-        public IEnumerable<Publisher> GetAllPublishers()
+        public override IEnumerable<Publisher> GetAll()
         {
-            return GetAll().Include(x => x.Games).ToList();
+            return _table.Include(x => x.Games).ToList();
         }
 
-        public Publisher GetById(int id)
-        {
-            return _table.FirstOrDefault(x => x.Id == id);
-        }
+        
     }
 }
