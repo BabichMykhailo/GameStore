@@ -8,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.Models
 {
-    public class OrderModel : IEntity
+    public class OrderModel 
     {
         public int Id { get; set; }
+        public string UserId { get; set; }
+        public DateTime DateTime { get; set; }
         public ICollection<GameModel> Games { get; set; }
     }
 }

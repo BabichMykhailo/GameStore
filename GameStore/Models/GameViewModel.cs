@@ -17,12 +17,12 @@ namespace GameStore.Models
         public decimal Discount { get; set; }
 
         public int DeveloperId { get; set; }
-        public DeveloperModel Developer { get; set; }
+        public DeveloperViewModel Developer { get; set; }
 
         public int PublisherId { get; set; }
-        public PublisherModel Publisher { get; set; }
+        public PublisherViewModel Publisher { get; set; }
 
-        public ICollection<GenreModel> Genres { get; set; }
-        public ICollection<OrderModel> Orders { get; set; }
+        public ICollection<GenreViewModel> Genres { get; set; }
+        public ICollection<OrderViewModel> Orders { get; set; }
     }
 }

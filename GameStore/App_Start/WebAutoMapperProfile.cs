@@ -12,9 +12,20 @@ namespace GameStore.App_Start
     {
         public WebAutoMapperProfile()
         {
+            CreateMap<DeveloperModel, DeveloperViewModel>();
+            CreateMap<DeveloperModel, DeveloperViewModel>().ReverseMap();
+
             CreateMap<GameModel, GameViewModel>();
             CreateMap<GameModel, GameViewModel>().ReverseMap();
 
+            CreateMap<GenreModel, GenreViewModel>();
+            CreateMap<GenreModel, GenreViewModel>().ReverseMap();
+
+            CreateMap<OrderModel, OrderViewModel>();
+            CreateMap<OrderModel, OrderViewModel>().ReverseMap();
+
+            CreateMap<PublisherModel, PublisherViewModel>();
+            CreateMap<PublisherModel, PublisherViewModel>().ReverseMap();
         }
     }
 }

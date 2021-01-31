@@ -1,0 +1,12 @@
+﻿@model IEnumerable<GameStore.Models.GameViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+@foreach (var game in Model)
+{
+    Html.RenderPartial("/Views/Game/_GamePartial.cshtml", game);
+}
+
+@Styles.Render("~/Content/Card")

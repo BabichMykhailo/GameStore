@@ -48,10 +48,7 @@ namespace GameStore.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Адрес электронной почты")]
-        [EmailAddress]
-        public string Email { get; set; }
+       
 
         [Required]
         [DataType(DataType.Password)]
@@ -60,6 +57,9 @@ namespace GameStore.Models
 
         [Display(Name = "Запомнить меня")]
         public bool RememberMe { get; set; }
+        
+        [Required]
+        public string UserName { get; set; }
     }
 
     public class RegisterViewModel
@@ -79,6 +79,9 @@ namespace GameStore.Models
         [Display(Name = "Подтверждение пароля")]
         [Compare("Password", ErrorMessage = "Пароль и его подтверждение не совпадают.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public string UserName { get; set; }
     }
 
     public class ResetPasswordViewModel

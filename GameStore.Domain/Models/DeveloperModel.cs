@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GameStore.Domain.Models
 {
-    public class DeveloperModel : IEntity
+    public class DeveloperModel 
     {
         public int Id { get; set; }
         public string Title { get; set; }

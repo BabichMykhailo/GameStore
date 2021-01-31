@@ -1,0 +1,14 @@
+﻿@model GameStore.Models.GameViewModel
+@{
+    ViewBag.Title = "_GamePartial";
+}
+
+<div class="carditemmy">
+    <img src="" alt="" style="width:100%; max-height: 100px">
+    <h1>@Model.Title</h1>
+    <p class="pricecarditemmy">@Model.Price</p>
+    <p>@Model.Discription</p>
+    @Html.ActionLink("Подробнее", "GetById", new { id = Model.Id })
+</div>
+
+

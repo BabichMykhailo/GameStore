@@ -10,7 +10,8 @@ namespace GameStoreDAL.Models
     public class Order : IEntity
     {
         public int Id { get; set; }
-
+        public string UserId { get; set; }
+        public DateTime DateTime { get; set; }
         public ICollection <Game> Games { get; set; }
 
     }
